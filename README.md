@@ -1,3 +1,6 @@
+#Info
+This a demo recipesApp implemented using react+redux, and structured with reduxDucks pattern. One can add,remove and search from the foodRecipes displayed on the page
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
