@@ -3,10 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { App } from '../src/app/App';
 import { store } from './app/store';
+import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const render = () => {
+
+//using react-redux
+root.render(
+  <React.StrictMode>
+    <Provider store = {store}>
+      <App/>
+    </Provider>
+  </React.StrictMode>
+)
+
+
+//old redux pattern, where state and dispatch through top level components
+//and accessed through props
+/*const render = () => {
   //pass state and dispatch props to app
 
   root.render(
@@ -18,7 +32,7 @@ const render = () => {
 
 render();
 store.subscribe(render);
-// Subscribe render to changes to the `store`
+*/
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

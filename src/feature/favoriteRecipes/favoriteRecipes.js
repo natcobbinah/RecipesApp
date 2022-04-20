@@ -1,12 +1,17 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import FavoriteButton from '../../components/favoriteButton';
 import Recipe from '../../components/Recipe';
 import { icons } from '../../images/icons/allIcons';
 import { removeRecipe } from './favoriteRecipesSlice';
+import { selectFilteredFavoriteRecipes } from './favoriteRecipesSlice';
 
-export const FavoriteRecipes = (props) =>{
-  
-    const {favoriteRecipes,dispatch} = props;
+export const FavoriteRecipes = () =>{
+    //props argx removed
+
+   // const {favoriteRecipes,dispatch} = props;
+   const dispatch = useDispatch();
+   const favoriteRecipes = useSelector(selectFilteredFavoriteRecipes);
     
     const onRemoveRecipeHandler = (recipe) => {
       dispatch(removeRecipe(recipe));

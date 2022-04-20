@@ -1,6 +1,17 @@
 #Info
 This a demo recipesApp implemented using react+redux, and structured with reduxDucks pattern. One can add,remove and search from the foodRecipes displayed on the page
 
+[NOTE]: react-redux has been used to further refactor the application,  giving components access to Redux (store) without props drilling.
+
+Selectors are thus used to access all / part of the (state) in the Redux Store.
+
+useSelector()  retrieves the application (state) through selectors and called
+within a components
+
+useSelector() subscribes components to data retrieved from selectors. React, not Redux, re-renders those components when the selected data changes.
+
+useDispatch() returns reference to Redux store dispatch() function.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

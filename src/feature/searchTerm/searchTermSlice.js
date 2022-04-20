@@ -23,4 +23,7 @@ const searchTermReducer = (searchTerm = initialSearchTerm, action) => {
     }
 }
 
-export {setSearchTerm, clearSearchTerm, searchTermReducer};
+//create searchTermSelector
+const selectSearchTerm = (state) => state.searchTerm;
+
+export {setSearchTerm, clearSearchTerm, searchTermReducer, selectSearchTerm};

@@ -1,9 +1,13 @@
 import React from 'react';
-import { setSearchTerm,clearSearchTerm } from './searchTermSlice';
+import { setSearchTerm,clearSearchTerm, selectSearchTerm } from './searchTermSlice';
 import { icons } from '../../images/icons/allIcons';
+import { useDispatch, useSelector } from 'react-redux';
 
-export const SearchTerm = (props) => {
-    const {searchTerm, dispatch} = props;
+export const SearchTerm = () => {
+    //props argx removed
+    //const {searchTerm, dispatch} = props;
+    const searchTerm = useSelector(selectSearchTerm);
+    const dispatch = useDispatch();
 
     const onSearchTermChangeHandler = (e) => {
         const userInput = e.target.value;
