@@ -1,7 +1,29 @@
 import allRecipesData from "./allRecipesData";
 import { selectSearchTerm } from "../searchTerm/searchTermSlice";
+import { createSlice } from "@reduxjs/toolkit";
 
-const loadData = () => {
+//enhance approach with [redux-toolkit]
+let options = {
+    name: 'favoriteRecipes',
+    initialState: [],
+    reducers : {
+        loadData: () => {
+            return allRecipesData
+        },
+        addRecipe: (state, action) => {
+            return state.filter(recipe => recipe.id !== action.payload.id);
+        },
+        removeRecipe : (state, action) => {
+            return [...state, action.payload]
+        }
+
+    }
+}
+
+let allRecipiesSlice = createSlice(options);
+
+//old approach using react-redux
+/* const loadData = () => {
     return {
         type: 'allRecipes/loadData',
         payload: allRecipesData
@@ -20,7 +42,7 @@ const allRecipesReducer = (allRecipes = initialAllRecipes, action) => {
         default:
             return allRecipes;
     }
-}
+} */
 
 //create allRecipeSelectors
 const selectAllRecipes = (state) => {
@@ -36,4 +58,5 @@ const selectFilteredAllRecipes = (state) => {
 }
 
 
-export { loadData, allRecipesReducer, selectAllRecipes, selectFilteredAllRecipes };
+//export { loadData, allRecipesReducer, selectAllRecipes, selectFilteredAllRecipes };
+export {allRecipiesSlice, selectFilteredAllRecipes };

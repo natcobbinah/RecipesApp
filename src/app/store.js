@@ -1,12 +1,12 @@
 import { createStore , combineReducers} from 'redux';
-import {allRecipesReducer} from '../feature/allRecipes/allRecipesSlice';
-import {favoriteRecipesReducer} from '../feature/favoriteRecipes/favoriteRecipesSlice';
-import {searchTermReducer} from '../feature/searchTerm/searchTermSlice';
+import {allRecipiesSlice} from '../feature/allRecipes/allRecipesSlice';
+import {favoriteRecipesSlice} from '../feature/favoriteRecipes/favoriteRecipesSlice';
+import {searchTermSlice }  from '../feature/searchTerm/searchTermSlice';
 
 let reducers = {
-  allRecipes : allRecipesReducer,
-  favoriteRecipes : favoriteRecipesReducer,
-  searchTerm : searchTermReducer
+  allRecipes : allRecipiesSlice.reducer,
+  favoriteRecipes : favoriteRecipesSlice.reducer,
+  searchTerm : searchTermSlice.reducer
 }
 
 let store = createStore(combineReducers(reducers));

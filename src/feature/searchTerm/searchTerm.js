@@ -1,7 +1,9 @@
 import React from 'react';
-import { setSearchTerm,clearSearchTerm, selectSearchTerm } from './searchTermSlice';
 import { icons } from '../../images/icons/allIcons';
 import { useDispatch, useSelector } from 'react-redux';
+import { searchTermSlice, selectSearchTerm } from './searchTermSlice';
+
+const {setSearchTerm, clearSearchTerm} = searchTermSlice.actions;
 
 export const SearchTerm = () => {
     //props argx removed

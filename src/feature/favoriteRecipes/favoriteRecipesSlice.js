@@ -1,6 +1,24 @@
 import { selectSearchTerm } from "../searchTerm/searchTermSlice";
+import { createSlice } from "@reduxjs/toolkit";
 
-const addRecipe = (recipe) => {
+//simplyfying [actionCreators & reducers] even further with redux toolKit
+//enhanced approach with redux-toolKit
+let options = {
+    name: 'favoriteRecipes',
+    initialState: [],
+    reducers: {
+        addRecipe: (state,action) => {
+            return [...state,action.payload]
+        },
+        removeRecipe: (state, action) => {
+            return state.filter(recipe => recipe.id !== action.payload.id)
+        }
+    }
+}
+const favoriteRecipesSlice = createSlice(options);
+
+//old approach with react-redux
+/* const addRecipe = (recipe) => {
     return {
         type: 'favoriteRecipes/addRecipe',
         payload: recipe
@@ -26,7 +44,7 @@ const favoriteRecipesReducer = (favoriteRecipes = initialFavoriteRecipes, action
         default:
             return favoriteRecipes;
     }
-}
+} */
 
 export const selectFavoriteRecipes = (state) => state.favoriteRecipes;
 
@@ -39,4 +57,5 @@ const selectFilteredFavoriteRecipes = (state) => {
   );
 };
 
-export {addRecipe, removeRecipe, favoriteRecipesReducer, selectFilteredFavoriteRecipes};
+//export {addRecipe, removeRecipe, favoriteRecipesReducer, selectFilteredFavoriteRecipes};
+export {favoriteRecipesSlice, selectFilteredFavoriteRecipes};

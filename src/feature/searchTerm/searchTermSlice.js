@@ -1,4 +1,23 @@
-const setSearchTerm = (term) => {
+import { createSlice } from "@reduxjs/toolkit";
+
+//new approach with [redux-toolkit]
+let options = {
+    name: 'searchTerm',
+    initialState: '',
+    reducers: {
+        setSearchTerm: (state, action) => {
+            return action.payload
+        },
+        clearSearchTerm: (state, action) => {
+            return ''
+        },
+    }
+}
+
+let searchTermSlice = createSlice(options);
+
+//old approach with react-redux
+/* const setSearchTerm = (term) => {
     return {
         type: 'searchTerm/setSearchTerm',
         payload: term
@@ -21,9 +40,10 @@ const searchTermReducer = (searchTerm = initialSearchTerm, action) => {
         default:
             return searchTerm;
     }
-}
+} */
 
 //create searchTermSelector
 const selectSearchTerm = (state) => state.searchTerm;
 
-export {setSearchTerm, clearSearchTerm, searchTermReducer, selectSearchTerm};
+//export {setSearchTerm, clearSearchTerm, searchTermReducer, selectSearchTerm};
+export {searchTermSlice, selectSearchTerm};

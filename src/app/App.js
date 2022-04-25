@@ -43,6 +43,6 @@ export function App(){
 
 /* Utility Helpers */
 
-function getFilteredRecipes(recipes, searchTerm) {
+/* function getFilteredRecipes(recipes, searchTerm) {
   return recipes.filter(recipe => recipe.name.toLowerCase().includes(searchTerm.toLowerCase()));
-}
+} */

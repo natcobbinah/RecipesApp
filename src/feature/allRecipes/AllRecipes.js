@@ -1,10 +1,12 @@
-import { addRecipe } from '../favoriteRecipes/favoriteRecipesSlice.js';
-import { loadData, selectFilteredAllRecipes} from './allRecipesSlice';
+//import { addRecipe } from '../favoriteRecipes/favoriteRecipesSlice.js';
+import {selectFilteredAllRecipes, allRecipiesSlice} from './allRecipesSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
 import FavoriteButton from '../../components/favoriteButton.js';
 import Recipe from "../../components/Recipe";
 import { icons } from '../../images/icons/allIcons.js';
+
+const {addRecipe, loadData} = allRecipiesSlice.actions;
 
 export const AllRecipes = () => {
   //props argx removed
