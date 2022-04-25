@@ -15,6 +15,15 @@ useDispatch() returns reference to Redux store dispatch() function.
 [NOTE 2]: Slices has been further been refactored with reduxToolkit, eliminating the creation of (actionCreators and reducers), enhancing readability and reducing 
 boiler plate codes
 
+[Immer library] in reduxToolkit has been used to write code that 
+'mutates' the [state] inside [case-reducers] passed to [createSlice],
+because it will safely and accurately return an immutable updated state
+
+**The {store} setup process has also been simplified by eliminating
+the use of [createStore(combineReducers(rootReducers)))] with a single function in the reduxToolKit(RTK) which is [configureStore(reducer arg)] 
+which accepts a reducer as argument and handles most of the store setup
+process automatically.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

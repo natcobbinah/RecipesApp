@@ -8,7 +8,11 @@ let options = {
     initialState: [],
     reducers: {
         addRecipe: (state,action) => {
-            return [...state,action.payload]
+            //return [...state,action.payload]
+            
+            //utitlizing [Immer library in redux toolkit] where we can update state but
+            //[Immer] takes responsibility to handle immutability for us
+            state.push(action.payload);
         },
         removeRecipe: (state, action) => {
             return state.filter(recipe => recipe.id !== action.payload.id)
