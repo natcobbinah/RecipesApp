@@ -12,6 +12,9 @@ useSelector() subscribes components to data retrieved from selectors. React, not
 
 useDispatch() returns reference to Redux store dispatch() function.
 
+[NOTE 2]: Slices has been further been refactored with reduxToolkit, eliminating the creation of (actionCreators and reducers), enhancing readability and reducing 
+boiler plate codes
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
